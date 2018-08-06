@@ -76,7 +76,7 @@ export default function getDetails(event) {
     // text is sometimes same as the href for dropped links
     // most times, we can get the real text from the html
     if (text === links[0] &amp;&amp; html.substr(0, 2) === &apos;&lt;a&apos;) {
-        text = this.getHtmlText(html);
+        text = getHtmlText(html);
     }
 
     // many times the text is a URL, even if sometimes no were detected (e.g. drop address bar)

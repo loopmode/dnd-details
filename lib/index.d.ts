@@ -5,7 +5,7 @@ interface IDropDetails {
     text: string;
     html: string;
 }
-declare module "dnd-details" {
-    function getDetails( event: DragEvent | DragEvent<HTMLDivElement> ): IDropDetails;
+declare module 'dnd-details' {
+    function getDetails(event: DragEvent): IDropDetails;
     export = getDetails;
 }
