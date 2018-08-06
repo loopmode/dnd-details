@@ -39,15 +39,33 @@
 
 <div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="dnd-details">dnd-details</h1>
 <p>Takes a <code>DragEvent</code> object and returns information about the dropped content.</p>
-<p>The returned object has the shape</p>
-<pre><code><code class="source-code prettyprint">export interface IDropDetails {
-  files: FileList;
-  links: string[];
-  images: string[];
-  text: string;
-  html: string;
+<h2 id="installation">Installation</h2>
+<pre><code class="lang-bash"><code class="source-code prettyprint">yarn add dnd-details</code>
+</code></pre>
+<h2 id="resources">Resources</h2>
+<p><a href="https://loopmode.github.io/dnd-details/">Documentation</a>
+<a href="https://www.npmjs.com/package/dnd-details">npm page</a></p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import dndDetails from &apos;dnd-details&apos;;
+
+...
+
+onDrop(event) {
+    const details = dndDetails(event);
+    console.log(details);
 }</code>
-</code></pre><h3 id="dragging-from-desktop">Dragging from desktop</h3>
+</code></pre>
+<h2 id="returned-object">Returned object</h2>
+<p>The returned object has the shape</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">export interface IDropDetails {
+    files: FileList;
+    links: string[];
+    images: string[];
+    text: string;
+    html: string;
+}</code>
+</code></pre>
+<h3 id="dragging-from-desktop">Dragging from desktop</h3>
 <p>When files were dragged in from the local filesystem, the <code>files</code> list will be populated.
 None of the other values will be populated.</p>
 <h3 id="dragging-from-other-browser-windows">Dragging from other browser windows</h3>

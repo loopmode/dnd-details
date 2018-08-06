@@ -2,15 +2,41 @@
 
 Takes a `DragEvent` object and returns information about the dropped content.
 
+## Installation
+
+```bash
+yarn add dnd-details
+```
+
+## Resources
+
+[Documentation](https://loopmode.github.io/dnd-details/)
+[npm page](https://www.npmjs.com/package/dnd-details)
+
+## Usage
+
+```javascript
+import dndDetails from 'dnd-details';
+
+...
+
+onDrop(event) {
+    const details = dndDetails(event);
+    console.log(details);
+}
+```
+
+## Returned object
+
 The returned object has the shape
 
-```
+```javascript
 export interface IDropDetails {
-  files: FileList;
-  links: string[];
-  images: string[];
-  text: string;
-  html: string;
+    files: FileList;
+    links: string[];
+    images: string[];
+    text: string;
+    html: string;
 }
 ```
 
