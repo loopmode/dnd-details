@@ -1,0 +1,18 @@
+{
+  "name": "html5-drop-details",
+  "main": "lib/index.js",
+  "description": "Retrieve details from a DragEvent",
+  "devDependencies": {},
+  "scripts": {
+    "babel": "babel src --out-dir lib --copy-files",
+    "eslint": "eslint src",
+    "esdoc": "esdoc",
+    "build": "babel src --out-dir lib --copy-files",
+    "lint": "eslint src",
+    "docs": "esdoc"
+  },
+  "dependencies": {
+    "@loopmode/babel6-base": "^0.0.12",
+    "is-url": "^1.2.4"
+  }
+}
