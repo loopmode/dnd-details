@@ -1,18 +1,43 @@
 {
-  "name": "html5-drop-details",
+  "name": "dnd-details",
+  "version": "1.0.0",
   "main": "lib/index.js",
-  "description": "Retrieve details from a DragEvent",
-  "devDependencies": {},
+  "description": "Retrieves details about drag'n'dropped content",
+  "license": "MIT",
+  "author": "Jovica Aleksic <jovica.aleksic@xailabs.de>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loopmode/html5-drop-details.git"
+  },
   "scripts": {
-    "babel": "babel src --out-dir lib --copy-files",
-    "eslint": "eslint src",
-    "esdoc": "esdoc",
     "build": "babel src --out-dir lib --copy-files",
     "lint": "eslint src",
     "docs": "esdoc"
   },
+  "devDependencies": {
+    "@loopmode/babel6-base": "^0.0.12"
+  },
   "dependencies": {
-    "@loopmode/babel6-base": "^0.0.12",
     "is-url": "^1.2.4"
-  }
+  },
+  "keywords": [
+    "react file gmail",
+    "react file facebook",
+    "react file upload",
+    "react file drag drop",
+    "react",
+    "react dropzone",
+    "react-file-drop",
+    "gmail",
+    "facebook",
+    "dropzone",
+    "upload",
+    "drag",
+    "drop",
+    "drag and drop",
+    "drag n drop",
+    "file",
+    "window",
+    "document"
+  ]
 }

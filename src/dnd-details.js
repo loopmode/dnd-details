@@ -1,19 +1,7 @@
-'use strict';
+import isUrl from 'is-url';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.linkHrefRegExp = exports.imageSrcRegExp = undefined;
-exports.default = getDetails;
-
-var _isUrl = require('is-url');
-
-var _isUrl2 = _interopRequireDefault(_isUrl);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var imageSrcRegExp = exports.imageSrcRegExp = /<img\s.*?src=(?:'|")([^'">]+)(?:'|")/gim;
-var linkHrefRegExp = exports.linkHrefRegExp = /<a\s.*?href=(?:'|")([^'">]+)(?:'|")/gim;
+export const imageSrcRegExp = /<img\s.*?src=(?:'|")([^'">]+)(?:'|")/gim;
+export const linkHrefRegExp = /<a\s.*?href=(?:'|")([^'">]+)(?:'|")/gim;
 
 /**
  * Retrieves details about dropped content in a drag-drop operation.
@@ -22,7 +10,7 @@ var linkHrefRegExp = exports.linkHrefRegExp = /<a\s.*?href=(?:'|")([^'">]+)(?:'|
  * Returns an object with info, depending of the kind of content that was dragged.
  *
  * - When dragging files from the local filesystem, `"files"` will be the only set property, the other properties will have empty or default values
- * - When dragging content from another browser window, `"files"` will never be set, but some or all of the other values might be set
+ * - When dragging content from another browser window, `"files"` will be always empty, but some or all of the other values might be set
  *
  * @param {DragEvent} event - The `ondrop` event object
  * @return {object} details
@@ -32,11 +20,11 @@ var linkHrefRegExp = exports.linkHrefRegExp = /<a\s.*?href=(?:'|")([^'">]+)(?:'|
  * @property {Array} links - An array of URLs found in links of dropped HTML content.
  * @property {Array} images - An array of image URLs found in `src` attributes of images in dropped HTML content.
  */
-function getDetails(event) {
-    var html = event.dataTransfer && event.dataTransfer.getData('text/html') || '';
-    var images = getRegExpMatches(html, imageSrcRegExp) || [];
-    var links = getRegExpMatches(html, linkHrefRegExp) || [];
-    var text = event.dataTransfer.getData('Text') || '';
+export default function getDetails(event) {
+    const html = (event.dataTransfer && event.dataTransfer.getData('text/html')) || '';
+    const images = getRegExpMatches(html, imageSrcRegExp) || [];
+    let links = getRegExpMatches(html, linkHrefRegExp) || [];
+    let text = event.dataTransfer.getData('Text') || '';
 
     // text is sometimes same as the src for dropped images
     // (with some encoding/escaping differences, normalized via getHtmlText)
@@ -52,7 +40,7 @@ function getDetails(event) {
     }
 
     // many times the text is a URL, even if sometimes no were detected (e.g. drop address bar)
-    if ((0, _isUrl2.default)(text)) {
+    if (isUrl(text)) {
         if (links.length === 0) {
             links = [text];
         } else if (links.indexOf(text) === -1) {
@@ -63,7 +51,7 @@ function getDetails(event) {
     // always return empty arrays for links and images instead of e.g. null,
     // this way, callsites can safely check for e.g. images.length or images[0]
     return {
-        files: event.dataTransfer && event.dataTransfer.files || null,
+        files: (event.dataTransfer && event.dataTransfer.files) || null,
         html: html || '',
         text: text || '',
         links: links,
@@ -73,17 +61,15 @@ function getDetails(event) {
 
 function getHtmlText(str) {
     if (!str) return '';
-    var el = document.createElement('div');
+    const el = document.createElement('div');
     el.innerHTML = str;
     return el.innerText.trim();
 }
 
-function getRegExpMatches(str, reg) {
-    var group = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-
-    var matches = [];
+function getRegExpMatches(str, reg, group = 1) {
+    const matches = [];
     if (str) {
-        var match = reg.exec(str);
+        let match = reg.exec(str);
         while (match != null) {
             matches.push(match[group]);
             match = reg.exec(str);

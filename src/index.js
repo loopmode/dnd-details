@@ -1,1 +1,1 @@
-export default from './html5-drop-details';
+export default from './dnd-details';

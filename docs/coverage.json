@@ -3,7 +3,7 @@
   "expectCount": 1,
   "actualCount": 1,
   "files": {
-    "src/html5-drop-details.js": {
+    "src/dnd-details.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

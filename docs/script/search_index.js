@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "html5-drop-details/src/html5-drop-details.js~html5dropdetails",
-    "function/index.html#static-function-html5DropDetails",
-    "<span>html5DropDetails</span> <span class=\"search-result-import-path\">html5-drop-details/src/html5-drop-details.js</span>",
+    "dnd-details/src/dnd-details.js~getdetails",
+    "function/index.html#static-function-getDetails",
+    "<span>getDetails</span> <span class=\"search-result-import-path\">dnd-details/src/dnd-details.js</span>",
     "function"
   ],
   [
@@ -336,9 +336,9 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/html5-drop-details.js",
-    "file/src/html5-drop-details.js.html",
-    "src/html5-drop-details.js",
+    "src/dnd-details.js",
+    "file/src/dnd-details.js.html",
+    "src/dnd-details.js",
     "file"
   ],
   [

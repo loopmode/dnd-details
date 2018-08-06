@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/html5-drop-details.js | my-package API Document</title>
+  <title data-ice="title">src/dnd-details.js | my-package API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -19,7 +19,7 @@
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
-  
+  <a data-ice="repoURL" href="https://github.com/loopmode/html5-drop-details" class="repo-url-github">Repository</a>
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -32,12 +32,12 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html5DropDetails">html5DropDetails</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getDetails">getDetails</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/html5-drop-details.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/dnd-details.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import isUrl from &apos;is-url&apos;;
 
 export const imageSrcRegExp = /&lt;img\s.*?src=(?:&apos;|&quot;)([^&apos;&quot;&gt;]+)(?:&apos;|&quot;)/gim;
@@ -60,7 +60,7 @@ export const linkHrefRegExp = /&lt;a\s.*?href=(?:&apos;|&quot;)([^&apos;&quot;&g
  * @property {Array} links - An array of URLs found in links of dropped HTML content.
  * @property {Array} images - An array of image URLs found in `src` attributes of images in dropped HTML content.
  */
-export default function html5DropDetails(event) {
+export default function getDetails(event) {
     const html = (event.dataTransfer &amp;&amp; event.dataTransfer.getData(&apos;text/html&apos;)) || &apos;&apos;;
     const images = getRegExpMatches(html, imageSrcRegExp) || [];
     let links = getRegExpMatches(html, linkHrefRegExp) || [];
