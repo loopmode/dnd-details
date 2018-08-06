@@ -10,8 +10,8 @@ yarn add dnd-details
 
 ## Resources
 
-[Documentation](https://loopmode.github.io/dnd-details/)
-[npm page](https://www.npmjs.com/package/dnd-details)
+-   [Documentation](https://loopmode.github.io/dnd-details/)
+-   [npm page](https://www.npmjs.com/package/dnd-details)
 
 ## Usage
 
