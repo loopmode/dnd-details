@@ -37,8 +37,8 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="html5-drop-details">html5-drop-details</h1>
-<p>Takes a <code>DragEvent</code> object and returns information about the dragged content.</p>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="dnd-details">dnd-details</h1>
+<p>Takes a <code>DragEvent</code> object and returns information about the dropped content.</p>
 <p>The returned object has the shape</p>
 <pre><code><code class="source-code prettyprint">export interface IDropDetails {
   files: FileList;
@@ -47,7 +47,19 @@
   text: string;
   html: string;
 }</code>
-</code></pre></div>
+</code></pre><h3 id="dragging-from-desktop">Dragging from desktop</h3>
+<p>When files were dragged in from the local filesystem, the <code>files</code> list will be populated.
+None of the other values will be populated.</p>
+<h3 id="dragging-from-other-browser-windows">Dragging from other browser windows</h3>
+<p>When dragging content from other browser windows, the <code>files</code> list will always be empty, but several of the other values will be populated.</p>
+<ul>
+<li>When a single link is dragged, <code>text</code> should contain the displayed text of the link, and <code>links</code> should have one entry with the <code>href</code> URL of the link</li>
+<li>When a single image is dragged, <code>images</code> should have one entry with the <code>src</code> URL of the image</li>
+<li>When a linked image is dragged, both <code>links</code> and <code>images</code> should be populated</li>
+<li>When dragging in entire websites, e.g. <code>Ctrl+A</code> then drag and drop, you might have the data for many images and links</li>
+<li>The <code>links</code> and <code>images</code> arrays will always exist, even if they&apos;re empty. So it&apos;s safe write code like <code>if (details.images.length &gt; 0)</code> and you don&apos;t need <code>if (details.images &amp;&amp; details.images.length &gt; 0)</code></li>
+</ul>
+</div>
 </div>
 
 <footer class="footer">
