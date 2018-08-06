@@ -6,6 +6,6 @@ interface IDropDetails {
     html: string;
 }
 declare module 'dnd-details' {
-    function getDetails(event: DragEvent): IDropDetails;
+    function getDetails(event: any): IDropDetails;
     export = getDetails;
 }
